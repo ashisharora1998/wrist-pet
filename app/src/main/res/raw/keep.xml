@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Sprites are looked up by slot name at runtime, so resource shrinking must keep them. -->
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:keep="@drawable/stage*" />

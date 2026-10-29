@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WristPet</string>
+    <string name="complication_label">WristPet pet</string>
+    <string name="tile_label">WristPet</string>
+    <string name="tile_description">Your pet, its progress and a Pet button</string>
+    <string name="rename_label">Pet name</string>
+</resources>

@@ -1,0 +1,53 @@
+[versions]
+agp = "8.11.1"
+kotlin = "2.2.0"
+coreKtx = "1.16.0"
+activity = "1.10.1"
+lifecycle = "2.9.2"
+datastore = "1.1.7"
+wearComplications = "1.2.1"
+composeBom = "2025.05.01"
+wearCompose = "1.4.1"
+tiles = "1.4.1"
+protolayout = "1.2.1"
+healthServices = "1.0.0"
+concurrentFutures = "1.2.0"
+wearInput = "1.1.0"
+junit = "4.13.2"
+guava = "31.1-android"
+playServicesWearable = "19.0.0"
+coroutinesPlayServices = "1.10.2"
+navigationCompose = "2.8.9"
+glance = "1.1.1"
+
+[libraries]
+androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "coreKtx" }
+androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity" }
+androidx-lifecycle-runtime-compose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "lifecycle" }
+androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastore" }
+wear-complications-data-source-ktx = { module = "androidx.wear.watchface:watchface-complications-data-source-ktx", version.ref = "wearComplications" }
+compose-bom = { module = "androidx.compose:compose-bom", version.ref = "composeBom" }
+compose-ui = { module = "androidx.compose.ui:ui" }
+wear-compose-material = { module = "androidx.wear.compose:compose-material", version.ref = "wearCompose" }
+wear-compose-foundation = { module = "androidx.wear.compose:compose-foundation", version.ref = "wearCompose" }
+wear-compose-navigation = { module = "androidx.wear.compose:compose-navigation", version.ref = "wearCompose" }
+wear-tiles = { module = "androidx.wear.tiles:tiles", version.ref = "tiles" }
+wear-protolayout = { module = "androidx.wear.protolayout:protolayout", version.ref = "protolayout" }
+health-services = { module = "androidx.health:health-services-client", version.ref = "healthServices" }
+concurrent-futures-ktx = { module = "androidx.concurrent:concurrent-futures-ktx", version.ref = "concurrentFutures" }
+wear-input = { module = "androidx.wear:wear-input", version.ref = "wearInput" }
+guava = { module = "com.google.guava:guava", version.ref = "guava" }
+play-services-wearable = { module = "com.google.android.gms:play-services-wearable", version.ref = "playServicesWearable" }
+kotlinx-coroutines-play-services = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services", version.ref = "coroutinesPlayServices" }
+compose-material3 = { module = "androidx.compose.material3:material3" }
+compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
+androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
+glance-appwidget = { module = "androidx.glance:glance-appwidget", version.ref = "glance" }
+glance-material3 = { module = "androidx.glance:glance-material3", version.ref = "glance" }
+junit = { module = "junit:junit", version.ref = "junit" }
+
+[plugins]
+android-library = { id = "com.android.library", version.ref = "agp" }
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }

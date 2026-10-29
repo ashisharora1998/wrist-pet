@@ -1,0 +1,21 @@
+.gradle/
+build/
+local.properties
+.idea/
+*.iml
+.DS_Store
+.kotlin/
+.venv/
+# Your own source art and import previews; never committed.
+incoming/
+.deploy-watch
+# Only the original placeholder pets are committed. Any other pet (e.g. imported art)
+# stays local so third-party artwork never reaches the repo.
+assets/sprites/*
+!assets/sprites/sprout/
+!assets/sprites/puff/
+!assets/sprites/pebble/
+# Pet library (imported art) copied to the phone; never committed.
+library/
+# Your pet picks (names of imported art); kept local like library/.
+face-pets.txt

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WristPet</string>
+    <string name="pet_slot_name">Pet</string>
+    <string name="left_slot_name">Left widget</string>
+    <string name="right_slot_name">Right widget</string>
+    <string name="config_theme">Theme</string>
+    <string name="theme_mint">Mint</string>
+    <string name="theme_lavender">Lavender</string>
+    <string name="theme_coral">Coral</string>
+    <string name="theme_mono">Mono</string>
+    <string name="config_rings">Steps &amp; battery rings</string>
+</resources>

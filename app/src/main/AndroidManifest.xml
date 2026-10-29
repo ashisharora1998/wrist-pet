@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-feature android:name="android.hardware.type.watch" />
+
+    <!-- Steps for XP (optional; the pet works without it). -->
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
+    <!-- Re-arm the pet's mood/nudge alarms and step tracking after a reboot. -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <queries>
+        <package android:name="com.google.android.wearable.healthservices" />
+    </queries>
+
+    <application
+        android:name=".WristPetApp"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_pet"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.DeviceDefault">
+
+        <meta-data
+            android:name="com.google.android.wearable.standalone"
+            android:value="true" />
+
+        <activity
+            android:name=".PetActivity"
+            android:exported="true"
+            android:taskAffinity="">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+        <!-- Invisible: a tap on the pet on the face pets it without opening the app. -->
+        <activity
+            android:name=".PetTapActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:noHistory="true"
+            android:taskAffinity=""
+            android:theme="@android:style/Theme.NoDisplay" />
+
+        <service
+            android:name=".complication.PetComplicationService"
+            android:exported="true"
+            android:icon="@drawable/ic_pet"
+            android:label="@string/complication_label"
+            android:permission="com.google.android.wearable.permission.BIND_COMPLICATION_PROVIDER">
+            <intent-filter>
+                <action android:name="android.support.wearable.complications.ACTION_COMPLICATION_UPDATE_REQUEST" />
+            </intent-filter>
+            <meta-data
+                android:name="android.support.wearable.complications.SUPPORTED_TYPES"
+                android:value="RANGED_VALUE,SMALL_IMAGE" />
+            <!-- 0 = push-only: updates come from PetSignals, never from polling. -->
+            <meta-data
+                android:name="android.support.wearable.complications.UPDATE_PERIOD_SECONDS"
+                android:value="0" />
+        </service>
+
+        <service
+            android:name=".tile.PetTileService"
+            android:description="@string/tile_description"
+            android:exported="true"
+            android:icon="@drawable/ic_pet"
+            android:label="@string/tile_label"
+            android:permission="com.google.android.wearable.permission.BIND_TILE_PROVIDER">
+            <intent-filter>
+                <action android:name="androidx.wear.tiles.action.BIND_TILE_PROVIDER" />
+            </intent-filter>
+            <meta-data
+                android:name="androidx.wear.tiles.PREVIEW"
+                android:resource="@drawable/ic_pet" />
+        </service>
+
+        <service
+            android:name=".health.StepsListenerService"
+            android:exported="true"
+            android:permission="com.google.android.wearable.healthservices.permission.PASSIVE_DATA_BINDING" />
+
+        <service
+            android:name=".sync.WatchCommandService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.android.gms.wearable.MESSAGE_RECEIVED" />
+                <data
+                    android:host="*"
+                    android:pathPrefix="/pet/command"
+                    android:scheme="wear" />
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name=".clock.PetClockReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

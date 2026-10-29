@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WristPet</string>
+    <string name="widget_label">WristPet</string>
+    <string name="widget_description">Your pet, its mood and progress</string>
+</resources>
